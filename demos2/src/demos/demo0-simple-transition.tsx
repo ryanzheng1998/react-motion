@@ -1,20 +1,19 @@
 import React from 'react';
-import './App.css';
-import { Motion, spring, presets, StaggeredMotion, OpaqueConfig, PlainStyle } from "react-motion";
+import { Motion, spring, PlainStyle } from "react-motion";
 
-const App: React.FC = () => {
+const Demo: React.FC = () => {
   // false == left
   // true == right
   const [direction, setDirection] = React.useState(false)
 
   const slider = ({ x }: PlainStyle) => (
     <svg
-      width="300"
-      height="150"
+      width="500"
+      height="200"
     >
       <rect
-        width="20"
-        height="20"
+        width="50"
+        height="50"
         x={x}
         y="50%"
       />
@@ -22,17 +21,17 @@ const App: React.FC = () => {
   )
 
   return (
-    <>
+    <div>
       <Motion
-        style={{ x: spring(direction ? 0 : 250) }}
+        style={{ x: spring(direction ? 0 : 450) }}
       >
         {slider}
       </Motion>
       <button
         onClick={() => setDirection(!direction)}
       >Toggle</button>
-    </>
+    </div>
   )
 }
 
-export default App;
+export default Demo
